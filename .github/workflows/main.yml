@@ -12,7 +12,7 @@ jobs:
       - name: Pull Latest Code
         run: |
           cd /home/ubuntu/github-action-ci-cd
-          git pull origin master
+          git pull origin main
 
       - name: Install Dependencies
         run: |
