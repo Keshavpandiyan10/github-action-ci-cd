@@ -9,17 +9,22 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      # FIX: This replaces git pull and downloads your code safely
+      # 1. Download your fresh code into the safe runner playground folder
       - name: Checkout Repository Code
         uses: actions/checkout@v4
-        with:
-          path: /home/ubuntu/github-action-ci-cd
 
+      # 2. Copy the fresh files over to your active app folder
+      - name: Sync Code to App Directory
+        run: |
+          cp -R ./* /home/ubuntu/github-action-ci-cd/
+
+      # 3. Go to your app folder and install dependencies
       - name: Install Dependencies
         run: |
           cd /home/ubuntu/github-action-ci-cd
           npm i
 
+      # 4. Run tests
       - name: Run Test
         run: |
           cd /home/ubuntu/github-action-ci-cd
