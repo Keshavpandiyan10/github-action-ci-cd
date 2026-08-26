@@ -37,4 +37,4 @@ jobs:
     steps:
       - name: Restart App
         run: |
-          pm2 restart index
+          pm2 reload backend
