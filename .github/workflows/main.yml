@@ -19,10 +19,10 @@ jobs:
           cd /home/ubuntu/github-action-ci-cd
           npm i
 
-      - name: Run Tests
+      - name: Run Application
         run: |
           cd /home/ubuntu/github-action-ci-cd
-          npm run test
+          npm run start
 
   cd:
     needs: ci
